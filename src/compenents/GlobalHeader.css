@@ -4,7 +4,7 @@
 }
 
 .logo {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 .logo a {
@@ -21,16 +21,16 @@
 
 /* 去除 menuItem 鼠标悬停时添加的底部选中条*/
 .ant-menu-item:hover::after {
-    /* border: 0 !important; */
+  border: 0 !important;
 }
 
 /* 去除 menuItem 选中时添加的底部选中条 */
-.ant-menu-item-selected::after{
-    border: 0 !important;
+.ant-menu-item-selected::after {
+  border: 0 !important;
 }
 
 /* 当 menuItem 鼠标悬停时为文本添加颜色*/
-.ant-menu-item:hover .ant-menu-title-content{
+.ant-menu-item:hover .ant-menu-title-content {
   color: #1677ff;
 }
 
@@ -47,12 +47,14 @@
   border-bottom: 3px solid #1677ff;
 }
 
-.searchBar {
-    display: flex;
-    align-items: center;
+.searchBar,
+.button,
+.user {
+  display: flex;
+  align-items: center;
 }
 
 .searchBar input::placeholder {
-    color: #B0B0B0;
-    font-size: 15px;
+  color: #b0b0b0;
+  font-size: 15px;
 }
