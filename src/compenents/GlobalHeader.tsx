@@ -4,6 +4,7 @@ import "./GlobalHeader.css";
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
 import { SearchOutlined, UserOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -14,7 +15,7 @@ const items: MenuItem[] = [
   },
   {
     label: "问答",
-    key: "q&a",
+    key: "qa",
   },
   {
     label: "课堂",
@@ -32,11 +33,14 @@ const items: MenuItem[] = [
 
 const GlobalHeader: React.FC = () => {
   const [current, setCurrent] = useState("article");
+  const navigate = useNavigate(); // 获取跳转函数
 
   // 顶部导航栏点击函数
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
+    // console.log("click ", e);
     setCurrent(e.key);
+    // 根据点击的菜单项跳转到对应的页面
+    navigate(`/${e.key}`);
   };
 
   return (
