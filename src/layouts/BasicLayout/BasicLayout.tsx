@@ -2,6 +2,7 @@ import React from "react";
 import "./BasicLayout.css";
 import { Layout } from "antd";
 import GlobalHeader from "../../compenents/GlobalHeader";
+import { Outlet } from "react-router-dom";
 
 const { Header, Content } = Layout;
 
@@ -19,7 +20,7 @@ const contentStyle: React.CSSProperties = {
   minHeight: 120,
   lineHeight: "120px",
   color: "#fff",
-  backgroundColor: "#0958d9",
+  backgroundColor: "#000",
 };
 
 const layoutStyle = {
@@ -34,7 +35,10 @@ const BasicLayout: React.FC = () => {
           <Header style={headerStyle}>
             <GlobalHeader />
           </Header>
-          <Content style={contentStyle}>Content</Content>
+          <Content style={contentStyle}>
+            {/* 子路由组件将在这里渲染 */}
+            <Outlet />
+          </Content>
         </Layout>
       </div>
     </>
