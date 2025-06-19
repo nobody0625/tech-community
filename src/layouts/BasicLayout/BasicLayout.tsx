@@ -13,9 +13,15 @@ const headerStyle: React.CSSProperties = {
   paddingInline: 48,
   lineHeight: "64px",
   backgroundColor: "#000",
+  position: "fixed",
+  top: 0,
+  left: 0,
+  right: 0,
+  zIndex: 100,
 };
 
 const contentStyle: React.CSSProperties = {
+  marginTop: 60,
   textAlign: "center",
   minHeight: 120,
   lineHeight: "120px",
