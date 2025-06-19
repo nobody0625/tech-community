@@ -17,23 +17,23 @@ export const routes: RouteObject[] = [
         element: <HomePage />,
       },
       {
-        path: "/activity",
+        path: "activity",
         element: <ActivityPage />,
       },
       {
-        path: "/article",
+        path: "article",
         element: <ArticlePage />,
       },
       {
-        path: "/course",
+        path: "course",
         element: <CoursePage />,
       },
       {
-        path: "/document",
+        path: "document",
         element: <DocumentPage />,
       },
       {
-        path: "/qa",
+        path: "qa",
         element: <QAPage />,
       },
       //   {
