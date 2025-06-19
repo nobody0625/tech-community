@@ -1,0 +1,31 @@
+#homePage {
+  height: 100vh;
+}
+
+.top {
+  width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top .slick-dots {
+  justify-content: start !important;
+  margin-left: 25px !important;
+}
+
+.top .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top .right div {
+  width: 380px;
+  height: 110px;
+}
+
+.bottom {
+  height: 100%;
+  background-color: #F6F9FB;
+}
