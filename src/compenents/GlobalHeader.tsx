@@ -71,7 +71,7 @@ const GlobalHeader: React.FC = () => {
           <Row wrap={false}>
             {/* logo */}
             <Col flex="180px" className="logo">
-              <a href="#" target="_blank">
+              <a href="http://localhost:5173/">
                 <img
                   src="src\assets\react.svg"
                   alt="logo"

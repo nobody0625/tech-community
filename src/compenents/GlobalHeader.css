@@ -1,5 +1,5 @@
 #globalHeader {
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -52,6 +52,10 @@
 .user {
   display: flex;
   align-items: center;
+}
+
+.searchBar {
+  margin-right: 20px;
 }
 
 .searchBar input::placeholder {
