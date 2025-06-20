@@ -27,5 +27,61 @@
 
 .bottom {
   height: 100%;
-  background-color: #F6F9FB;
+  background-color: #f6f9fb;
+  padding-top: 16px;
+}
+
+.tips {
+  width: 1200px;
+  margin: 0 auto 20px;
+  text-align: left;
+}
+
+.bottom .content {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom .right {
+  width: 380px;
+}
+
+.bottom .label {
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.bottom .label .item {
+  width: 150px;
+  height: 35px;
+  margin: 0 12.5px 10px 0;
+  padding-left: 10px;
+  background-color: #fff;
+  display: flex;
+  justify-content: start;
+  color: #000;
+}
+
+.bottom .label .item:nth-child(5n) {
+  margin-right: 0;
+}
+
+.item p {
+  margin-bottom: 2px;
+  line-height: 35px;
+}
+
+.articleNav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.articleNav .searchBar {
+  width: 180px;
 }
