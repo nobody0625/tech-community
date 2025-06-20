@@ -7,11 +7,6 @@ import { Outlet } from "react-router-dom";
 const { Header, Content } = Layout;
 
 const headerStyle: React.CSSProperties = {
-  textAlign: "center",
-  color: "#fff",
-  height: 64,
-  paddingInline: 48,
-  lineHeight: "64px",
   backgroundColor: "#000",
   position: "fixed",
   top: 0,
@@ -22,10 +17,6 @@ const headerStyle: React.CSSProperties = {
 
 const contentStyle: React.CSSProperties = {
   marginTop: 60,
-  textAlign: "center",
-  minHeight: 120,
-  lineHeight: "120px",
-  color: "#fff",
   backgroundColor: "#000",
 };
 
