@@ -20,28 +20,28 @@
 }
 
 /* 去除 menuItem 鼠标悬停时添加的底部选中条*/
-.ant-menu-item:hover::after {
+.navbar .ant-menu-item:hover::after {
   border: 0 !important;
 }
 
 /* 去除 menuItem 选中时添加的底部选中条 */
-.ant-menu-item-selected::after {
+.navbar .ant-menu-item-selected::after {
   border: 0 !important;
 }
 
 /* 当 menuItem 鼠标悬停时为文本添加颜色*/
-.ant-menu-item:hover .ant-menu-title-content {
+.navbar .ant-menu-item:hover .ant-menu-title-content {
   color: #1677ff;
 }
 
 /* 为 menuItem 文本添加颜色和字体大小*/
-.ant-menu-title-content {
+.navbar .ant-menu-title-content {
   color: #fff;
   font-size: 18px;
 }
 
 /* 设置选中 menuItem 的文本颜色和底部选中条 */
-.ant-menu-item-selected .ant-menu-title-content {
+.navbar .ant-menu-item-selected .ant-menu-title-content {
   color: #fff !important;
   padding-bottom: 7px;
   border-bottom: 3px solid #1677ff;
