@@ -48,14 +48,14 @@
   width: 380px;
 }
 
-.bottom .label {
+.bottom .module {
   width: 800px;
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
 }
 
-.bottom .label .item {
+.bottom .module .item {
   width: 150px;
   height: 35px;
   margin: 0 12.5px 10px 0;
@@ -66,13 +66,17 @@
   color: #000;
 }
 
-.bottom .label .item:nth-child(5n) {
+.bottom .module .item:nth-child(5n) {
   margin-right: 0;
 }
 
 .item p {
   margin-bottom: 2px;
   line-height: 35px;
+}
+
+.article {
+  width: 800px;
 }
 
 .articleNav {
@@ -85,3 +89,14 @@
 .articleNav .searchBar {
   width: 180px;
 }
+
+.articleLabel {
+  padding: 16px 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.articleLabel .item {
+  font-size: 12px;
+}
+

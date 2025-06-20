@@ -12,7 +12,8 @@ import {
 import React, { useState } from "react";
 import "./HomePage.css";
 import * as AntdIcons from "@ant-design/icons";
-import label from "../../public/json/home_label.json";
+import module from "../../public/json/home_module.json";
+import label from "../../public/json/article_label.json";
 
 const SoundOutlined = AntdIcons.SoundOutlined;
 const SearchOutlined = AntdIcons.SearchOutlined;
@@ -180,8 +181,8 @@ const HomePage: React.FC = () => {
             <div className="content">
               <div className="left">
                 {/* 标签栏 */}
-                <div className="label">
-                  {label.map((item) => {
+                <div className="module">
+                  {module.map((item) => {
                     // 动态获取图标组件
                     // @ts-expect-error: TypeScript 不允许使用字符串字面量（item.icon）直接索引 AntdIcons 对象，因为类型定义中没有声明字符串索引签名。
                     const IconComponent = AntdIcons[item.icon];
@@ -220,6 +221,24 @@ const HomePage: React.FC = () => {
                         }
                       />
                     </div>
+                  </div>
+                  {/* 文章标签 */}
+                  <div className="articleLabel">
+                    <Space wrap size={4}>
+                      {label.map((item) => {
+                        return (
+                          <Button
+                            key={item.id}
+                            className="item"
+                            color="primary"
+                            variant="filled"
+                            size="small"
+                          >
+                            {item.label}
+                          </Button>
+                        );
+                      })}
+                    </Space>
                   </div>
                 </div>
               </div>
