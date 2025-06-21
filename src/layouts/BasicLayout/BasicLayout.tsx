@@ -20,15 +20,11 @@ const contentStyle: React.CSSProperties = {
   backgroundColor: "#000",
 };
 
-const layoutStyle = {
-  minHeight: "100vh",
-};
-
 const BasicLayout: React.FC = () => {
   return (
     <>
       <div id="basicLayout">
-        <Layout style={layoutStyle}>
+        <Layout>
           <Header style={headerStyle}>
             <GlobalHeader />
           </Header>
