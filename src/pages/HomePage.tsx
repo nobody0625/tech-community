@@ -1,19 +1,35 @@
 import {
   Alert,
+  Avatar,
   Button,
+  Card,
   Carousel,
   ConfigProvider,
+  Divider,
   Image,
   Input,
   Menu,
   Space,
+  Tabs,
+  Typography,
   type MenuProps,
+  type TabsProps,
 } from "antd";
 import React, { useState } from "react";
 import "./HomePage.css";
 import * as AntdIcons from "@ant-design/icons";
+import carousel from "../../public/json/carousel.json";
 import module from "../../public/json/home_module.json";
 import label from "../../public/json/article_label.json";
+import hot from "../../public/json/hot_article.json";
+import last from "../../public/json/last_article.json";
+import user1 from "../../public/json/ranking_list1.json";
+import user2 from "../../public/json/ranking_list2.json";
+import user3 from "../../public/json/ranking_list3.json";
+import user4 from "../../public/json/ranking_list4.json";
+import { useNavigate } from "react-router-dom";
+
+const { Text } = Typography;
 
 const SoundOutlined = AntdIcons.SoundOutlined;
 const SearchOutlined = AntdIcons.SearchOutlined;
@@ -31,13 +47,87 @@ const items: MenuItem[] = [
   },
 ];
 
+const rankList1Items: TabsProps["items"] = [
+  {
+    key: "1",
+    label: "博主榜",
+  },
+  {
+    key: "2",
+    label: "答主榜",
+  },
+  {
+    key: "3",
+    label: "讲师榜",
+  },
+  {
+    key: "4",
+    label: "全能榜",
+  },
+];
+
+const rankList2Items: TabsProps["items"] = [
+  {
+    key: "1",
+    label: "本月",
+  },
+  {
+    key: "2",
+    label: "季度",
+  },
+  {
+    key: "3",
+    label: "年度",
+  },
+  {
+    key: "4",
+    label: "总榜",
+  },
+];
+
+// 文章数据源映射
+const ArticleDataMap = {
+  hot: hot,
+  last: last,
+};
+
+// 用户数据源映射
+const UserDataMap = {
+  "1": user1,
+  "2": user2,
+  "3": user3,
+  "4": user4,
+};
+
 const HomePage: React.FC = () => {
-  // 当前选中菜单项
+  // 文章导航栏当前选中菜单项
   const [current, setCurrent] = useState("hot");
-  // 菜单项点击事件
+
+  // 菜单项文章数据
+  const currentArticlrData =
+    ArticleDataMap[current as keyof typeof ArticleDataMap];
+
+  // 文章导航栏菜单项点击事件
   const onClick: MenuProps["onClick"] = (e) => {
     console.log("click ", e);
     setCurrent(e.key);
+  };
+
+  const navigate = useNavigate();
+
+  // 文章卡片点击事件
+  const handleClick = (articleId: number) => {
+    navigate(`/article/${articleId}`); // 带参数跳转
+  };
+
+  // 排行榜标签栏当前选中项
+  const [activeTabKey, setActiveTabKey] = useState("1");
+
+  // 标签项用户数据
+  const user = UserDataMap[activeTabKey as keyof typeof UserDataMap];
+
+  const onChange = (key: string) => {
+    setActiveTabKey(key);
   };
 
   return (
@@ -63,6 +153,13 @@ const HomePage: React.FC = () => {
               itemSelectedColor: "#1677ff",
               groupTitleFontSize: 18,
             },
+            Card: {
+              bodyPadding: 0,
+            },
+            Tabs: {
+              lineWidth: 0,
+              margin: 0,
+            },
           },
         }}
       >
@@ -75,78 +172,40 @@ const HomePage: React.FC = () => {
                 autoplaySpeed={5000}
                 effect="fade"
               >
-                <div>
-                  <div>
-                    <Image
-                      preview={false}
-                      width={800}
-                      height={350}
-                      src="\images\image1.png"
-                      style={{
-                        display: "block",
-                      }}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <Image
-                      preview={false}
-                      width={800}
-                      height={350}
-                      src="\images\image2.png"
-                      style={{
-                        display: "block",
-                      }}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <Image
-                      preview={false}
-                      width={800}
-                      height={350}
-                      src="\images\image3.png"
-                      style={{
-                        display: "block",
-                      }}
-                    />
-                  </div>
-                </div>
+                {carousel.map((item) => {
+                  return (
+                    <div key={item.id} className="carouselItem">
+                      <div>
+                        <Image
+                          preview={false}
+                          width={800}
+                          height={350}
+                          src={item.img}
+                          style={{
+                            display: "block",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
               </Carousel>
             </div>
             <div className="right">
-              <div>
-                <Image
-                  preview={false}
-                  src="\images\image1.png"
-                  height={110}
-                  style={{
-                    display: "block",
-                  }}
-                />
-              </div>
-              <div>
-                <Image
-                  preview={false}
-                  src="\images\image2.png"
-                  height={110}
-                  style={{
-                    display: "block",
-                  }}
-                />
-              </div>
-              <div>
-                <Image
-                  preview={false}
-                  src="\images\image3.png"
-                  height={110}
-                  style={{
-                    display: "block",
-                  }}
-                />
-              </div>
+              {carousel.map((item) => {
+                return (
+                  <div key={item.id}>
+                    <Image
+                      preview={false}
+                      src={item.img}
+                      height={110}
+                      style={{
+                        display: "block",
+                      }}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
           {/* 底部内容 */}
@@ -240,10 +299,109 @@ const HomePage: React.FC = () => {
                       })}
                     </Space>
                   </div>
+                  {/* 文章 */}
+                  {currentArticlrData.map((item) => {
+                    return (
+                      <Card
+                        key={item.id}
+                        className="articleCard"
+                        style={{ padding: "16px", borderRadius: 0 }}
+                        onClick={() => handleClick(item.articleId)}
+                      >
+                        <Space align="start" size="large">
+                          <Image width={150} src={item.img} preview={false} />
+                          <div className="articleMessage">
+                            <Text
+                              className="title"
+                              style={{
+                                width: 200,
+                                fontSize: "22px",
+                                fontWeight: "bold",
+                              }}
+                              ellipsis={{ tooltip: item.title }}
+                            >
+                              {item.title}
+                            </Text>
+                            {/* <h1>1</h1> */}
+                            <p>{item.desciption}</p>
+                            <div className="articleFooter">
+                              <Space
+                                split={
+                                  <Divider
+                                    type="vertical"
+                                    style={{ borderColor: "#000" }}
+                                  />
+                                }
+                              >
+                                <span className="author">{item.author}</span>
+                                <span className="date">{item.date}</span>
+                              </Space>
+                            </div>
+                          </div>
+                        </Space>
+                      </Card>
+                    );
+                  })}
                 </div>
               </div>
               {/* 排行榜 */}
-              <div className="right"></div>
+              <div className="right">
+                <div className="rankingList">
+                  {/* 父级榜单 */}
+                  <div className="rankingListNav1">
+                    <Tabs
+                      defaultActiveKey="1"
+                      items={rankList1Items}
+                      indicator={{ size: 0 }}
+                      size="large"
+                      onChange={onChange}
+                    />
+                  </div>
+                  {/* 子级榜单 */}
+                  <div className="rankingListNav2">
+                    <Tabs
+                      defaultActiveKey="1"
+                      items={rankList2Items}
+                      indicator={{ size: 0 }}
+                      size="small"
+                    />
+                  </div>
+                  {/* 榜单内容 */}
+                  <div className="rankingListContent">
+                    {user.map((item) => {
+                      return (
+                        <Card
+                          key={item.id}
+                          className="userCard"
+                          style={{
+                            padding: "8px 16px",
+                            border: 0,
+                            borderRadius: 0,
+                          }}
+                        >
+                          <div className="userMessage">
+                            <div className="userId">
+                              {item.isTop ? (
+                                <Image
+                                  width={20}
+                                  src={`../../images/rankTop/top${item.id}.png`}
+                                  preview={false}
+                                />
+                              ) : (
+                                <p>{item.id}</p>
+                              )}
+                            </div>
+
+                            <Avatar src={<img src={item.img} alt="avatar" />} />
+                            <p className="userName">{item.userName}</p>
+                            <p className="count">+ {item.count}</p>
+                          </div>
+                        </Card>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

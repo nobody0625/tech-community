@@ -1,7 +1,3 @@
-#homePage {
-  height: 100vh;
-}
-
 .top {
   width: 1200px;
   margin: 20px auto;
@@ -83,7 +79,7 @@
   display: flex;
   justify-content: space-between;
   background-color: #fff;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .articleNav .searchBar {
@@ -93,10 +89,67 @@
 .articleLabel {
   padding: 16px 16px;
   background-color: #fff;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .articleLabel .item {
   font-size: 12px;
 }
 
+.articleCard:hover {
+  color: #1677ff;
+}
+
+.articleCard:hover .title {
+  color: #1677ff;
+}
+
+.articleMessage {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.articleMessage h1 {
+  font-size: 22px;
+}
+
+.articleMessage p {
+  margin-top: 5px;
+  flex: 1;
+}
+
+.rankingList {
+  background-color: #fff;
+}
+
+.rankingListNav1 {
+  padding: 0 16px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.rankingListNav2 {
+  padding: 0 16px;
+}
+
+.rankingListContent {
+  margin-top: 15px;
+}
+
+.userCard .userMessage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.userCard .userId {
+  width: 22px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.userCard .userName {
+  flex: 1;
+  margin-left: 10px;
+  font-weight: 500;
+}
