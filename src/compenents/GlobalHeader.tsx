@@ -1,10 +1,21 @@
-import { Avatar, Button, Col, ConfigProvider, Input, Row, Space } from "antd";
-import React, { useState } from "react";
+import {
+  AutoComplete,
+  Avatar,
+  Button,
+  Col,
+  ConfigProvider,
+  Input,
+  Row,
+  Space,
+} from "antd";
+import React, { useCallback, useEffect, useState } from "react";
 import "./GlobalHeader.css";
-import type { MenuProps } from "antd";
+import type { AutoCompleteProps, MenuProps } from "antd";
 import { Menu } from "antd";
 import { SearchOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import dataBase from "../../public/json/search_database.json";
+import debounce from "lodash.debounce";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -41,6 +52,54 @@ const GlobalHeader: React.FC = () => {
     setCurrent(e.key);
     // 根据点击的菜单项跳转到对应的页面
     navigate(`/${e.key}`);
+  };
+
+  // 模糊搜索与防抖的代码实现依赖AI
+
+  // 搜索框输入内容
+  const [searchValue, setSearchValue] = useState("");
+
+  // 模糊搜索选项
+  const [options, setOptions] = useState<AutoCompleteProps["options"]>([]);
+
+  // 模糊搜索函数
+  const performSearch = (query: string) => {
+    if (query) {
+      // 简单的模糊匹配算法
+      const filteredOptions = dataBase
+        .filter((item) => item.toLowerCase().includes(query.toLowerCase()))
+        .map((item) => ({ value: item, label: item }));
+
+      setOptions(filteredOptions);
+    } else {
+      setOptions([]);
+    }
+  };
+
+  // 使用 useCallback 包装，防止每次渲染创建新函数
+  const debouncedSearch = useCallback(
+    debounce((query: string) => {
+      performSearch(query);
+    }, 500),
+    [] // 空依赖数组保证函数稳定
+  );
+
+  // 清理防抖函数
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, []); // 空依赖数组，只在组件挂载和卸载时执行
+
+  // 处理输入变化
+  const handleSearchChange = (value: string) => {
+    setSearchValue(value);
+    debouncedSearch(value);
+  };
+
+  // 处理选择结果
+  const handleSelect = (value: string) => {
+    setSearchValue(value);
   };
 
   return (
@@ -94,26 +153,34 @@ const GlobalHeader: React.FC = () => {
             </Col>
             {/* 搜索 */}
             <Col flex="200px" className="searchBar">
-              <Input
-                className="input"
-                placeholder="搜索内容"
-                prefix={
-                  <SearchOutlined
-                    style={{
-                      color: "#C7CBCF",
-                      fontSize: "18px",
-                      marginRight: "8px",
-                    }}
-                  />
-                }
-                style={{
-                  height: "40px",
-                  backgroundColor: "#1A1A1A",
-                  borderColor: "#1A1A1A",
-                  color: "#fff",
-                  borderRadius: 0,
-                }}
-              />
+              <AutoComplete
+                value={searchValue}
+                options={options}
+                onSelect={handleSelect}
+                onSearch={handleSearchChange}
+                style={{ height: "40px" }}
+              >
+                <Input
+                  className="input"
+                  placeholder="搜索内容"
+                  prefix={
+                    <SearchOutlined
+                      style={{
+                        color: "#C7CBCF",
+                        fontSize: "18px",
+                        marginRight: "8px",
+                      }}
+                    />
+                  }
+                  style={{
+                    height: "40px",
+                    backgroundColor: "#1A1A1A",
+                    borderColor: "#1A1A1A",
+                    color: "#fff",
+                    borderRadius: 0,
+                  }}
+                />
+              </AutoComplete>
             </Col>
             {/* 按钮 */}
             <Col flex="200px" className="button">
