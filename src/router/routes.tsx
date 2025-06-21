@@ -6,6 +6,7 @@ import ArticlePage from "../pages/global_nav/ArticlePage";
 import CoursePage from "../pages/global_nav/CoursePage";
 import DocumentPage from "../pages/global_nav/DocumentPage";
 import QAPage from "../pages/global_nav/QAPAge";
+import ArticleDetail from "../pages/ArticleDetail";
 
 export const routes: RouteObject[] = [
   {
@@ -22,7 +23,16 @@ export const routes: RouteObject[] = [
       },
       {
         path: "article",
-        element: <ArticlePage />,
+        children: [
+          {
+            index: true,
+            element: <ArticlePage />,
+          },
+          {
+            path: ":id", 
+            element: <ArticleDetail />,
+          },
+        ],
       },
       {
         path: "course",
