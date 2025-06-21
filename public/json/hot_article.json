@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "articleId": 1, 
+    "img":"public/images/article/articleImg.png",
+    "title": "TypeScript基础：interface 接口",
+    "desciption": "TypeScript中，type支持所有类型（联合/交叉/函数等）且重复声明报错，适合非对象类型；interface仅限对象类型，可合并声明并通过extends继承，常用于类结构设计",
+    "author": "nobody0607",
+    "date": "2025-06-14",
+    "content": ""
+  },
+  {
+    "id": 2,
+    "articleId": 2, 
+    "img":"public/images/article/articleImg.png",
+    "title": "interface 接口",
+    "desciption": "TypeScript中，type支持所有类型（联合/交叉/函数等）且重复声明报错，适合非对象类型；interface仅限对象类型，可合并声明并通过extends继承，常用于类结构设计",
+    "author": "nobody0607",
+    "date": "2025-06-14",
+    "content": ""
+  }
+]

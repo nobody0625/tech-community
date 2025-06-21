@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "articleId": 3, 
+    "img":"public/images/article/articleImg1.png",
+    "title": "TypeScript基础：generics 泛型",
+    "desciption": "TypeScript泛型通过类型参数实现灵活复用，支持约束（extends）、推断（上下文/默认）、条件类型（infer）及工具类型（Partial/Pick/Record等），确保类型安全与代码扩展性。",
+    "author": "nobody0607",
+    "date": "2025-06-15",
+    "content": ""
+  },
+  {
+    "id": 2,
+    "articleId": 4, 
+    "img":"public/images/article/articleImg1.png",
+    "title": "generics 泛型",
+    "desciption": "TypeScript泛型通过类型参数实现灵活复用，支持约束（extends）、推断（上下文/默认）、条件类型（infer）及工具类型（Partial/Pick/Record等），确保类型安全与代码扩展性。",
+    "author": "nobody0607",
+    "date": "2025-06-15",
+    "content": ""
+  }
+]
