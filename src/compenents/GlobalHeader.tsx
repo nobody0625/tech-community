@@ -32,7 +32,7 @@ const items: MenuItem[] = [
 ];
 
 const GlobalHeader: React.FC = () => {
-  const [current, setCurrent] = useState("article");
+  const [current, setCurrent] = useState("");
   const navigate = useNavigate(); // 获取跳转函数
 
   // 顶部导航栏点击函数
