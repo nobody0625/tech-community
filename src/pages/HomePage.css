@@ -1,57 +1,57 @@
-.top {
+#homePage .top {
   width: 1200px;
   margin: 20px auto;
   display: flex;
   justify-content: space-between;
 }
 
-.top .slick-dots {
+#homePage .top .slick-dots {
   justify-content: start !important;
   margin-left: 25px !important;
 }
 
-.top .right {
+#homePage .top .right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.top .right div {
+#homePage .top .right div {
   width: 380px;
   height: 110px;
 }
 
-.bottom {
+#homePage .bottom {
   height: 100%;
   background-color: #f6f9fb;
   padding-top: 16px;
 }
 
-.tips {
+#homePage .tips {
   width: 1200px;
   margin: 0 auto 20px;
   text-align: left;
 }
 
-.bottom .content {
+#homePage .bottom .content {
   width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
 
-.bottom .right {
+#homePage .bottom .right {
   width: 380px;
 }
 
-.bottom .module {
+#homePage .bottom .module {
   width: 800px;
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
 }
 
-.bottom .module .item {
+#homePage .bottom .module .item {
   width: 150px;
   height: 35px;
   margin: 0 12.5px 10px 0;
@@ -62,93 +62,93 @@
   color: #000;
 }
 
-.bottom .module .item:nth-child(5n) {
+#homePage .bottom .module .item:nth-child(5n) {
   margin-right: 0;
 }
 
-.item p {
+#homePage .item p {
   margin-bottom: 2px;
   line-height: 35px;
 }
 
-.article {
+#homePage .article {
   width: 800px;
 }
 
-.articleNav {
+#homePage .articleNav {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
   border-bottom: 1px solid #e6e6e6;
 }
 
-.articleNav .searchBar {
+#homePage .articleNav .searchBar {
   width: 180px;
 }
 
-.articleLabel {
+#homePage .articleLabel {
   padding: 16px 16px;
   background-color: #fff;
   border-bottom: 1px solid #e6e6e6;
 }
 
-.articleLabel .item {
+#homePage .articleLabel .item {
   font-size: 12px;
 }
 
-.articleCard:hover {
+#homePage .articleCard:hover {
   color: #1677ff;
 }
 
-.articleCard:hover .title {
+#homePage .articleCard:hover .title {
   color: #1677ff;
 }
 
-.articleMessage {
+#homePage .articleMessage {
   height: 150px;
   display: flex;
   flex-direction: column;
 }
 
-.articleMessage h1 {
+#homePage .articleMessage h1 {
   font-size: 22px;
 }
 
-.articleMessage p {
+#homePage .articleMessage p {
   margin-top: 5px;
   flex: 1;
 }
 
-.rankingList {
+#homePage .rankingList {
   background-color: #fff;
 }
 
-.rankingListNav1 {
+#homePage .rankingListNav1 {
   padding: 0 16px;
   border-bottom: 1px solid #e6e6e6;
 }
 
-.rankingListNav2 {
+#homePage .rankingListNav2 {
   padding: 0 16px;
 }
 
-.rankingListContent {
+#homePage .rankingListContent {
   margin-top: 15px;
 }
 
-.userCard .userMessage {
+#homePage .userCard .userMessage {
   width: 100%;
   display: flex;
   align-items: center;
 }
 
-.userCard .userId {
+#homePage .userCard .userId {
   width: 22px;
   margin-right: 10px;
   text-align: center;
 }
 
-.userCard .userName {
+#homePage .userCard .userName {
   flex: 1;
   margin-left: 10px;
   font-weight: 500;
