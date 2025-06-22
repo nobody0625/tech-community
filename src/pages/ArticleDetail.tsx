@@ -7,6 +7,7 @@ import { useParams, useNavigate } from "react-router-dom"; // 添加 useNavigate
 import { ArrowLeftOutlined, UserOutlined } from "@ant-design/icons"; // 添加返回图标
 import Title from "antd/es/typography/Title";
 import MarkDownViewer from "../components/MarkDownViewer";
+import CommentComponent from "../components/comment/CommentComponent";
 
 const articleMap = {
   "1": hot[0],
@@ -42,6 +43,7 @@ const ArticleDetail: React.FC = () => {
           />
         </div>
         <div className="bottom">
+          {/* 文章主体内容 */}
           <div className="content">
             <div className="back">
               <Button
@@ -69,8 +71,13 @@ const ArticleDetail: React.FC = () => {
               <p className="time">{article?.date}</p>
             </div>
             <div className="md">
-              <MarkDownViewer content={article?.content}/>
+              <MarkDownViewer content={article?.content} />
             </div>
+          </div>
+          {/* 评论区 */}
+          <div className="comment">
+            <Title level={2} className="title">评论区</Title>
+            <CommentComponent />
           </div>
         </div>
       </div>

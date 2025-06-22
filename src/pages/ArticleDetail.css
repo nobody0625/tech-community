@@ -37,3 +37,16 @@
   padding: 0 15px;
   margin-top: 20px;
 }
+
+#ArticleDetail .comment {
+  width: 1050px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 64px 105px 60px 105px;
+  position: relative;
+  top: -80px;
+}
+
+#ArticleDetail .comment .title {
+  margin-bottom: 40px;
+}
