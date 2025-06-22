@@ -1,0 +1,39 @@
+#ArticleDetail .bottom {
+  background-color: #f6f9fb;
+}
+
+#ArticleDetail .content {
+  width: 1050px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 64px 105px 60px 105px;
+  position: relative;
+  top: -120px;
+}
+
+#ArticleDetail .content .title {
+  margin-top: 20px;
+  padding: 0 15px;
+}
+
+#ArticleDetail .message {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  margin-top: 30px;
+}
+
+#ArticleDetail .message .userName {
+  margin-left: 10px;
+}
+
+#ArticleDetail .attention {
+  width: 30px;
+  flex: 1;
+  margin-left: 20px;
+}
+
+#ArticleDetail .md {
+  padding: 0 15px;
+  margin-top: 20px;
+}
