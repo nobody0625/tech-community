@@ -1,7 +1,7 @@
 import React from "react";
 import "./BasicLayout.css";
 import { Layout } from "antd";
-import GlobalHeader from "../../compenents/GlobalHeader";
+import GlobalHeader from "../../components/GlobalHeader";
 import { Outlet } from "react-router-dom";
 
 const { Header, Content } = Layout;
