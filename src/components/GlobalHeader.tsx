@@ -77,6 +77,7 @@ const GlobalHeader: React.FC = () => {
   };
 
   // 使用 useCallback 包装，防止每次渲染创建新函数
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSearch = useCallback(
     debounce((query: string) => {
       performSearch(query);
@@ -89,6 +90,7 @@ const GlobalHeader: React.FC = () => {
     return () => {
       debouncedSearch.cancel();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // 空依赖数组，只在组件挂载和卸载时执行
 
   // 处理输入变化
@@ -132,7 +134,7 @@ const GlobalHeader: React.FC = () => {
             <Col flex="180px" className="logo">
               <a href="http://localhost:5173/">
                 <img
-                  src="src\assets\react.svg"
+                  src="/react.svg"
                   alt="logo"
                   style={{ height: "40px", width: "40px" }}
                 />
